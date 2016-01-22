@@ -5,7 +5,7 @@
 
   <%=  %>
 
-  <%= link_to(image_tag('plus_sign.png', :size => '11x11', :alt => '+') + " Agregar nuevo profesional", {:action => 'new'}, :class => 'action new') %>
+  <%= link_to(image_tag('plus_sign.png', :size => '11x11', :alt => '+') + " Agregar nuevo profesional", new_professional_path, :class => 'action new') %>
 
   <div><%= pluralize(@professionals.size, 'profesional') %> en lista</div>
   <table class="listing" summary="Professional list">
@@ -32,12 +32,12 @@
       <td><%= professional.dob %></td>
       <td><%= professional.speciality %></td>
       <td class="center"><%= professional.companies.size %></td>
-      <td class="center"><%= professional.customers.size %></td>
+      <td class="center"><%= professional.clients.size %></td>
       <td class="center"><%= professional.appointments.size %></td>
       <td class="actions">
-      	<%= link_to("Mostrar", {:action => 'show', :id => professional.id}, :class => 'action show') %>
-      	<%= link_to("Editar", {:action => 'edit', :id => professional.id}, :class => 'action edit') %>
-      	<%= link_to("Borrar", {:action => 'delete', :id => professional.id}, :class => 'action delete') %>
+      	<%= link_to("Mostrar", professional_path(professional.id), :class => 'action show') %>
+      	<%= link_to("Editar", edit_professional_path(professional.id), :class => 'action edit') %>
+      	<%= link_to("Borrar", delete_professional_path(professional.id), :class => 'action delete') %>
       </td>
     </tr>
     <% end %>

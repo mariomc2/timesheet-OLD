@@ -1,4 +1,4 @@
-class Appointment < ActiveRecord::Base
+class CompanyAppointment < ActiveRecord::Base
 
 	belongs_to :company
 	belongs_to :branch

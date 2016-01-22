@@ -1,11 +1,11 @@
 <% @page_title = "Profesionales" %>
 
-<%= link_to("<< Regresar a lista", {:action => 'index'}, :class => 'back-link') %>
+<%= link_to("<< Regresar a lista", professionals_path, :class => 'back-link') %>
 
 <div class="professionals new">
   <h2>Crear Profesional</h2>
 
-  <%= form_for(:professional, :url => {:action => 'create'}) do |f| %>
+  <%= form_for(@professional) do |f| %>
 
     <%= render(:partial => "form", :locals => {:f => f}) %>
 

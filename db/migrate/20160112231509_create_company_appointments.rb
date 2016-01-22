@@ -1,6 +1,6 @@
-class CreateAppointments < ActiveRecord::Migration
+class CreateCompanyAppointments < ActiveRecord::Migration
   def change
-    create_table :appointments do |t|
+    create_table :company_appointments do |t|
     	t.integer "company_id"
     	t.integer "branch_id"
     	t.integer "professional_id"
@@ -23,10 +23,10 @@ class CreateAppointments < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_index("appointments", "company_id")
-    add_index("appointments", "branch_id")
-    add_index("appointments", "professional_id")
-    add_index("appointments", "client_id")
-    add_index("appointments", "date_time")
+    add_index("company_appointments", "company_id")
+    add_index("company_appointments", "branch_id")
+    add_index("company_appointments", "professional_id")
+    add_index("company_appointments", "client_id")
+    add_index("company_appointments", "date_time")
   end
 end

@@ -9,6 +9,7 @@ class CreateCompanies < ActiveRecord::Migration
     	t.boolean "acc_active", :default => false
 
     	t.string "password_digest"
+      t.datetime "last_in"
 
       t.timestamps null: false
     end
