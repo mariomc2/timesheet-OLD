@@ -5,6 +5,7 @@ class CreateCompanyAppointments < ActiveRecord::Migration
     	t.integer "branch_id"
     	t.integer "professional_id"
     	t.integer "client_id"
+        t.integer "professional_appointment_id"
 
     	t.datetime "date_time", :null => false
 
@@ -28,5 +29,7 @@ class CreateCompanyAppointments < ActiveRecord::Migration
     add_index("company_appointments", "professional_id")
     add_index("company_appointments", "client_id")
     add_index("company_appointments", "date_time")
+
+    add_index("company_appointments", "professional_appointment_id")
   end
 end

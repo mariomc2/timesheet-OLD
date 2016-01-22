@@ -33,7 +33,7 @@
       <td><%= professional.speciality %></td>
       <td class="center"><%= professional.companies.size %></td>
       <td class="center"><%= professional.clients.size %></td>
-      <td class="center"><%= professional.appointments.size %></td>
+      <td class="center"><%= professional.professional_appointments.size %></td>
       <td class="actions">
       	<%= link_to("Mostrar", professional_path(professional.id), :class => 'action show') %>
       	<%= link_to("Editar", edit_professional_path(professional.id), :class => 'action edit') %>

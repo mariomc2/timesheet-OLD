@@ -71,28 +71,30 @@ ActiveRecord::Schema.define(version: 20160122230644) do
   add_index "companies", ["email"], name: "index_companies_on_email", using: :btree
 
   create_table "company_appointments", force: :cascade do |t|
-    t.integer  "company_id",                limit: 4
-    t.integer  "branch_id",                 limit: 4
-    t.integer  "professional_id",           limit: 4
-    t.integer  "client_id",                 limit: 4
-    t.datetime "date_time",                                               null: false
-    t.string   "status",                    limit: 255
-    t.string   "photo",                     limit: 255
-    t.string   "task_type",                 limit: 50
-    t.text     "task_note",                 limit: 65535
-    t.float    "total_project_price",       limit: 24
-    t.float    "task_payment",              limit: 24
-    t.float    "professional_fee",          limit: 24
-    t.float    "remaining_project_payment", limit: 24
-    t.boolean  "needs_folloup",                           default: false
-    t.datetime "created_at",                                              null: false
-    t.datetime "updated_at",                                              null: false
+    t.integer  "company_id",                  limit: 4
+    t.integer  "branch_id",                   limit: 4
+    t.integer  "professional_id",             limit: 4
+    t.integer  "client_id",                   limit: 4
+    t.integer  "professional_appointment_id", limit: 4
+    t.datetime "date_time",                                                 null: false
+    t.string   "status",                      limit: 255
+    t.string   "photo",                       limit: 255
+    t.string   "task_type",                   limit: 50
+    t.text     "task_note",                   limit: 65535
+    t.float    "total_project_price",         limit: 24
+    t.float    "task_payment",                limit: 24
+    t.float    "professional_fee",            limit: 24
+    t.float    "remaining_project_payment",   limit: 24
+    t.boolean  "needs_folloup",                             default: false
+    t.datetime "created_at",                                                null: false
+    t.datetime "updated_at",                                                null: false
   end
 
   add_index "company_appointments", ["branch_id"], name: "index_company_appointments_on_branch_id", using: :btree
   add_index "company_appointments", ["client_id"], name: "index_company_appointments_on_client_id", using: :btree
   add_index "company_appointments", ["company_id"], name: "index_company_appointments_on_company_id", using: :btree
   add_index "company_appointments", ["date_time"], name: "index_company_appointments_on_date_time", using: :btree
+  add_index "company_appointments", ["professional_appointment_id"], name: "index_company_appointments_on_professional_appointment_id", using: :btree
   add_index "company_appointments", ["professional_id"], name: "index_company_appointments_on_professional_id", using: :btree
 
   create_table "contact_details", force: :cascade do |t|

@@ -5,4 +5,6 @@ class CompanyAppointment < ActiveRecord::Base
 	belongs_to :professional
 	belongs_to :client
 
+	belongs_to :professional_appointment
+
 end
