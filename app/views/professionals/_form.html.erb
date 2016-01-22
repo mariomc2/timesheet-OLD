@@ -1,0 +1,29 @@
+
+
+<table summary="Professional form fields">
+  <tr>
+    <th><%= f.label(:first_name, "Nombre") %></th>
+    <td><%= f.text_field(:first_name) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:last_name, "Apellido") %></th>
+    <td><%= f.text_field(:last_name) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:id_code, "ID") %></th>
+    <td><%= f.text_field(:id_code) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:dob, "Fecha de Nacimiento") %></th>
+    <td><%= f.date_select(:dob, {:start_year => 1900, :end_year => Time.now.year}) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:email, "e-mail") %></th>
+    <td><%= f.text_field(:email) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:speciality, "Especialidad") %></th>
+    <td><%= f.text_field(:speciality) %></td>
+  </tr>
+  
+</table>

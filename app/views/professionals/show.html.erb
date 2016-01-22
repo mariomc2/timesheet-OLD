@@ -1,0 +1,51 @@
+<% @page_title = "Profesionales" %>
+
+<%= link_to("<< Regresar a lista", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="Professionals show">
+  <h2>Mostrar Profesional</h2>
+
+  <table summary="Professional detail view">
+    <tr>
+      <th>Nombre</th>
+      <td><%= @professional.first_name %></td>
+    </tr>
+    <tr>
+      <th>Apellido</th>
+      <td><%= @professional.last_name %></td>
+    </tr>
+    <tr>
+      <th>ID</th>
+      <td><%= @professional.id_code %></td>
+    </tr>
+    <tr>
+      <th>Fecha de Nacimiento</th>
+      <td><%= @professional.dob %></td>
+    </tr>
+    <tr>
+      <th>e-mail</th>
+      <td><%= @professional.email %></td>
+    </tr>
+    <tr>
+      <th>Especialidad</th>
+      <td><%= @professional.speciality %></td>
+    </tr>
+    <tr>
+      <th>Password Activo?</th>
+      <td><%= status_tag(@professional.pass_active) %></td>
+    </tr>
+    <tr>
+      <th>Cueta Activa?</th>
+      <td><%= status_tag(@professional.acc_active) %></td>
+    </tr>
+    <tr>
+      <th>Creado</th>
+      <td><%= @professional.created_at %></td>
+    </tr>
+    <tr>
+      <th>Actualizado</th>
+      <td><%= @professional.updated_at %></td>
+    </tr>
+  </table>
+
+</div>

@@ -1,0 +1,18 @@
+<% @page_title = "Profesionales" %>
+
+<%= link_to("<< Regresar a lista", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="professional delete">
+	<h2>Borrar Profesional</h2>
+
+	<%= form_for(:professional, :url => {:action => 'destroy', :id => @professional.id}) do |f| %>
+
+		<p> Esta seguro que desea borrar este profesional permanentemente? </p>
+
+		<p class="reference-name"><%= @professional.email %></p>
+
+		<div class="form-buttons">
+			<%= submit_tag("Delete Profesional") %>
+		</div>
+	<% end %>
+</div>

@@ -1,0 +1,45 @@
+<% @page_title = "Profesionales" %>
+
+<div class="professionals index">
+  <h2>Profesionales</h2>
+
+  <%=  %>
+
+  <%= link_to(image_tag('plus_sign.png', :size => '11x11', :alt => '+') + " Agregar nuevo profesional", {:action => 'new'}, :class => 'action new') %>
+
+  <div><%= pluralize(@professionals.size, 'profesional') %> en lista</div>
+  <table class="listing" summary="Professional list">
+    <tr class="header">
+      <th>&nbsp;</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>e-mail</th>
+      <th>ID</th>
+      <th>Fecha de Nacimiento</th>
+      <th>Especialidad</th>
+      <th>Compañias</th>
+      <th>Clientes</th>
+      <th>Citas</th>
+      <th>Acciones</th>
+    </tr>
+    <% @professionals.each do |professional| %>
+    <tr class="<%= cycle('odd', 'even') %>">
+      <td><%= professional.id %></td>
+      <td><%= professional.first_name %></td>
+      <td><%= professional.last_name %></td>
+      <td><%= professional.email %></td>
+      <td><%= professional.id_code %></td>
+      <td><%= professional.dob %></td>
+      <td><%= professional.speciality %></td>
+      <td class="center"><%= professional.companies.size %></td>
+      <td class="center"><%= professional.customers.size %></td>
+      <td class="center"><%= professional.appointments.size %></td>
+      <td class="actions">
+      	<%= link_to("Mostrar", {:action => 'show', :id => professional.id}, :class => 'action show') %>
+      	<%= link_to("Editar", {:action => 'edit', :id => professional.id}, :class => 'action edit') %>
+      	<%= link_to("Borrar", {:action => 'delete', :id => professional.id}, :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

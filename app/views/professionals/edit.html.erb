@@ -1,0 +1,18 @@
+<% @page_title = "Profesionales" %>
+
+<%= link_to("<< Regresar a lista", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="professionals edit">
+  <h2>Actualizar Profesional</h2>
+
+  <%= form_for(:professional, :url => {:action => 'update', :id => @professional.id}) do |f| %>
+
+    <%= render(:partial => "form", :locals => {:f => f}) %>
+
+    <div class="form-buttons">
+      <%= submit_tag("Actualizar profesional") %>
+    </div>
+
+  <% end %>
+
+</div>
