@@ -1,45 +1,52 @@
 <% @page_title = "Profesionales" %>
 
 <div class="professionals index">
-  <h2>Profesionales</h2>
+  
 
-  <%=  %>
+  <%  %>
 
   <%= link_to(image_tag('plus_sign.png', :size => '11x11', :alt => '+') + " Agregar nuevo profesional", new_professional_path, :class => 'action new') %>
 
   <div><%= pluralize(@professionals.size, 'profesional') %> en lista</div>
-  <table class="listing" summary="Professional list">
-    <tr class="header">
-      <th>&nbsp;</th>
-      <th>Nombre</th>
-      <th>Apellido</th>
-      <th>e-mail</th>
-      <th>ID</th>
-      <th>Fecha de Nacimiento</th>
-      <th>Especialidad</th>
-      <th>Compañias</th>
-      <th>Clientes</th>
-      <th>Citas</th>
-      <th>Acciones</th>
-    </tr>
-    <% @professionals.each do |professional| %>
-    <tr class="<%= cycle('odd', 'even') %>">
-      <td><%= professional.id %></td>
-      <td><%= professional.first_name %></td>
-      <td><%= professional.last_name %></td>
-      <td><%= professional.email %></td>
-      <td><%= professional.id_code %></td>
-      <td><%= professional.dob %></td>
-      <td><%= professional.speciality %></td>
-      <td class="center"><%= professional.companies.size %></td>
-      <td class="center"><%= professional.clients.size %></td>
-      <td class="center"><%= professional.professional_appointments.size %></td>
-      <td class="actions">
-      	<%= link_to("Mostrar", professional_path(professional.id), :class => 'action show') %>
-      	<%= link_to("Editar", edit_professional_path(professional.id), :class => 'action edit') %>
-      	<%= link_to("Borrar", delete_professional_path(professional.id), :class => 'action delete') %>
-      </td>
-    </tr>
-    <% end %>
-  </table>
+  <div class="table-responsive">
+    <table class="table table-striped" summary="Professional list">
+      <thead>
+        <tr>
+          <th>&nbsp;</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>e-mail</th>
+          <th>ID</th>
+          <th>Fecha de Nacimiento</th>
+          <th>Especialidad</th>
+          <th>Compañias</th>
+          <th>Clientes</th>
+          <th>Citas</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @professionals.each do |professional| %>
+        
+          <tr class="<%= cycle('odd', 'even') %>">
+            <td><%= professional.id %></td>
+            <td><%= professional.first_name %></td>
+            <td><%= professional.last_name %></td>
+            <td><%= professional.email %></td>
+            <td><%= professional.id_code %></td>
+            <td><%= professional.dob %></td>
+            <td><%= professional.speciality %></td>
+            <td class="center"><%= professional.companies.size %></td>
+            <td class="center"><%= professional.clients.size %></td>
+            <td class="center"><%= professional.professional_appointments.size %></td>
+            <td class="actions">
+            	<%= link_to("Mostrar", professional_path(professional.id), :class => 'action show') %>
+            	<%= link_to("Editar", edit_professional_path(professional.id), :class => 'action edit') %>
+            	<%= link_to("Borrar", delete_professional_path(professional.id), :class => 'action delete') %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
