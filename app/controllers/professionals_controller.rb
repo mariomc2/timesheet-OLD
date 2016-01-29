@@ -2,6 +2,8 @@ class ProfessionalsController < ApplicationController
   
   layout "professional"
 
+  before_action :set_locale
+
   def index
     @professionals = Professional.sorted_name
   end
@@ -57,6 +59,10 @@ class ProfessionalsController < ApplicationController
   end
 
   private
+
+    def set_locale
+      I18n.locale = params[:locale] || I18n.default_locale
+    end
 
     def professional_params
       # same as using "params[:professional]", except taht it:

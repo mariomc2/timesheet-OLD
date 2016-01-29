@@ -38,6 +38,14 @@
                 <li><a href="#">One more separated link</a></li>
               </ul>
             </li>
+            <li>
+              <% if I18n.locale == I18n.default_locale %>
+                
+                <%= link_to(image_tag('gb.png', :size => '22x14', :alt => 'gb') + " English", :locale=>'en') %>
+              <% else %>
+                <%= link_to(image_tag('co.png', :size => '22x14', :alt => 'co') + " Español", :locale=>'es') %>
+              <%end%>
+            </li>
           </ul>
 
           <form class="navbar-form navbar-right">
@@ -81,7 +89,7 @@
 
         	<!--/.Application RB Begins-->
 
-          <h1 class="page-header">Profesionales</h1>
+          <h1 class="page-header"><%= t(:professional).pluralize(locale) %></h1>
 
           <div id="main">
 						<% if !flash[:notice].blank? %>

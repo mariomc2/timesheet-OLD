@@ -1,16 +1,16 @@
-<% @page_title = "Profesionales" %>
+<% @page_title = t(:professional).pluralize(locale) %>
 
-<%= link_to("<< Regresar a lista", professionals_path, :class => 'back-link') %>
+<%= link_to("<< " + t(:return_to), professionals_path, :class => 'back-link') %>
 
 <div class="professionals edit">
-  <h2>Actualizar Profesional</h2>
+  <h2><%= t(:update) + " " + t(:professional) %></h2>
 
   <%= form_for(@professional) do |f| %>
 
     <%= render(:partial => "form", :locals => {:f => f}) %>
 
     <div class="form-buttons">
-      <%= submit_tag("Actualizar profesional") %>
+      <%= submit_tag(t(:edit) + " " + t(:professional)) %>
     </div>
 
   <% end %>

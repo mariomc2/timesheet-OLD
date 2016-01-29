@@ -26,3 +26,39 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+
+#/config/application.rb
+#Uncomment and change 
+config.i18n.default_locale = :es
+
+# app/controllers/application_controller.rb
+def default_url_options(options = {})
+  { locale: I18n.locale }.merge options
+end
+
+# for each controller
+before_action :set_locale
+ 
+def set_locale
+  I18n.locale = params[:locale] || I18n.default_locale
+end
+
+#in the route file
+
+get '/:locale' => 'timesheet#index'	
+
+
+	scope "(:locale)", locale: /es|en/ do
+    resources :professionals do
+      member do
+        get :delete
+      end
+    end
+  end
+
+# Gemsfile
+# adds pluralization for spanish
+gem 'inflections'
+
+# update the views
